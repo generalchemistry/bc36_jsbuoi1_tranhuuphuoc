@@ -15,18 +15,15 @@
         h1 {
             font-size: 20px;
         }
-
         section {
             padding: 20px 20px 0;
         }
-
         section>p {
             display: none;
             color: #3D8361;
             font-style: italic;
             font-weight: 500;
         }
-
         section>p:nth-of-type(2) {
             color: red;
         }
@@ -36,7 +33,7 @@
 <body>
     <section class="exercise">
         <h1>Bài 1. Tính tiền lương nhân viên</h1>
-        <form action="" id="exercise1">
+        <form action="" id="form1">
             <label for="dayWork">Số ngày làm</label>
             <input type="number" id="dayWork" required placeholder="Nhập số ngày làm">
             <button id="btnSubmit1" class="btn btn-secondary" type="submit">Kết quả</button>
@@ -49,7 +46,7 @@
 
     <section class="exercise">
         <h1>Bài 2. Tính giá trị trung bình</h1>
-        <form action="" id="exercise2">
+        <form action="" id="form2">
             <span>Dãy 5 chữ số thực</span>
             <input type="number" required step=any placeholder="Nhập số thứ nhất">
             <input type="number" required step=any placeholder="Nhập số thứ hai">
@@ -64,7 +61,7 @@
 
     <section class="exercise">
         <h1>Bài 3. Quy đổi tỉ giá</h1>
-        <form action="" id="exercise3">
+        <form action="" id="form3">
             <label for="currencyUSD">Mệnh giá USD</label> <input id="currencyUSD" type="number" required
                 placeholder="Nhập số tiền">
             <button id="btnSubmit3" class="btn btn-secondary" type="submit">Quy đổi</button>
@@ -79,7 +76,7 @@
 
     <section class="exercise">
         <h1>Bài 4. Tính chu vi, diện tích hình chữ nhật</h1>
-        <form action="" id="exercise4">
+        <form action="" id="form4">
             <label for="rectgLength">Chiều dài</label>
             <input type="number" required placeholder="Nhập chiều dài" id="rectgLength">
             <br>
@@ -91,7 +88,8 @@
 
                 <input type="radio" name="unit" id="centiMetre" value="cm" checked>
                 <label class="mr-3" for="centiMetre">cm</label>
-
+                <input type="radio" name="unit" id="deciMetre" value="dm" checked>
+                <label class="mr-3" for="deciMetre">dm</label>
                 <input type="radio" name="unit" id="metre" value="m">
                 <label class="mr-3" for="metre">m</label>
             </div>
@@ -113,7 +111,7 @@
 
     <section class="exercise">
         <h1>Bài 5. Tính tổng 2 kí số</h1>
-        <form action="" id="exercise5">
+        <form action="" id="form5">
             <label for="number2Digit">Số có 2 chữ số</label>
             <input type="number" required placeholder="Nhập 1 số có 2 chữ số" id="number2Digit">
             <button id="btnSubmit5" class="btn btn-secondary" type="submit">Tính tổng 2 kí số</button>

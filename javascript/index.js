@@ -1,37 +1,36 @@
+//Ngăn Reload value khi submit
 function preventReload() {
     event.preventDefault();
 }
-// KIỂM TRA DỮ LIỆU TRỐNG
-function validationValue(exercise_th, result_th, alert_th) {
-    var inputValue = document.getElementById(exercise_th).getElementsByTagName("input");
+
+// Báo lỗi dữ liệu trống
+function validValue(form_th, result_th, alert_th) {
+    var inputValue = document.getElementById(form_th).getElementsByTagName("input");
     var result = document.getElementById(result_th);
     var alert = document.getElementById(alert_th);
-    var countBlank = 0;
+    result.style.display = "block";
+    alert.style.display = "none";
     for (var i = 0; i < inputValue.length; i++) {
         if (inputValue[i].value == "") {
-            countBlank += 1;
             result.style.display = "none";
             alert.style.display = "block";
+            break;
         }
     };
-    if (countBlank == 0) {
-        result.style.display = "block";
-        alert.style.display = "none";
-    }
+
 }
+
+//Lấy dữ liệu radio
 function radioButton(target) {
-    var x = "";
+    var valueRadio = "";
     var checkbox = document.getElementsByName(target);
     for (var i = 0; i < checkbox.length; i++) {
-        switch (checkbox[i].checked) {
-            case true:
-                x = checkbox[i].value;
-                break;
-            case false:
-                break;
-        };
+        if(checkbox[i].checked==true){
+            valueRadio = checkbox[i].value;
+            break;
+        }
     }
-    return x;
+    return valueRadio;
 }
 
 /*Bài 1. Tính tiền lương nhân viên */
@@ -47,7 +46,7 @@ function exercise1() {
 /*Bài 2. Tính tiền lương nhân viên */
 function exercise2() {
     //Biến Input
-    var range5Number = document.getElementById("exercise2").getElementsByTagName("input");
+    var range5Number = document.getElementById("form2").getElementsByTagName("input");
     //Biến Output
     var average5Number = document.getElementById("average5Number");
 
@@ -112,33 +111,23 @@ function exercise5() {
 }
 
 
-document.getElementById("btnSubmit1").addEventListener("click", function () {
-    preventReload();
-    exercise1();
-    validationValue("exercise1", "result1", "alert1");
-});
-document.getElementById("btnSubmit2").addEventListener("click", function () {
-    preventReload();
-    exercise2();
-    validationValue("exercise2", "result2", "alert2");
-});
-document.getElementById("btnSubmit3").addEventListener("click", function () {
-    preventReload();
-    exercise3();
 
-    validationValue("exercise3", "result3", "alert3");
-});
-document.getElementById("btnSubmit4").addEventListener("click", function () {
-    preventReload();
-    exercise4();
-    validationValue("exercise4", "result4", "alert4");
-});
-document.getElementById("btnSubmit5").addEventListener("click", function () {
-    preventReload();
-    exercise5();
-    validationValue("exercise5", "result5", "alert5");
-});
+function TinhToan(i){
+    var exercise="exercise"+i;
+    var form="form"+i;
+    var result="result"+i;
+    var btnSubmit="btnSubmit"+i;
+    var alertNoti="alert"+i;
+    document.getElementById(btnSubmit).addEventListener("click",function(){
+        window[exercise]();
+        validValue(form,result,alertNoti);
+        preventReload();
+    })
+}
 
 
-
-
+TinhToan(1);
+TinhToan(2);
+TinhToan(3);
+TinhToan(4);
+TinhToan(5);

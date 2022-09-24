@@ -1,133 +1,100 @@
-//Ngăn Reload value khi submit
-function preventReload() {
-    event.preventDefault();
-}
-
 // Báo lỗi dữ liệu trống
-function validValue(form_th, result_th, alert_th) {
-    var inputValue = document.getElementById(form_th).getElementsByTagName("input");
-    var result = document.getElementById(result_th);
-    var alert = document.getElementById(alert_th);
-    result.style.display = "block";
-    alert.style.display = "none";
-    for (var i = 0; i < inputValue.length; i++) {
-        if (inputValue[i].value == "") {
-            result.style.display = "none";
-            alert.style.display = "block";
-            break;
-        }
-    };
-
-}
-
-//Lấy dữ liệu radio
-function radioButton(target) {
-    var valueRadio = "";
-    var checkbox = document.getElementsByName(target);
-    for (var i = 0; i < checkbox.length; i++) {
-        if(checkbox[i].checked==true){
-            valueRadio = checkbox[i].value;
-            break;
-        }
+function validValue(x) {
+  var inputValue = document
+    .getElementsByClassName("form-group")
+    [x].getElementsByTagName("input");
+  for (var i = 0; i < inputValue.length; i++) {
+    if (inputValue[i].value == "") {
+      return false;
     }
-    return valueRadio;
+  }
+  return true;
 }
 
 /*Bài 1. Tính tiền lương nhân viên */
 function exercise1() {
-    var dayWork = document.getElementById("dayWork").value;
-    var salaryDay = 100000;
-    // Biến Output
-    var salaryMonth = document.getElementById("salaryMonth");
-    // Process
-    salaryMonth.innerHTML = parseInt(dayWork) * salaryDay + " VNĐ";
+  var dayWork = document.getElementById("dayWork").value;
+  var salaryPerDay = document.getElementById("salaryPerDay").value;
+  var salaryMonth = salaryPerDay * dayWork;
+  return (
+    "Lương tháng của bạn là: " +
+    Intl.NumberFormat({ style: "currency" }).format(salaryMonth)
+  );
 }
 
 /*Bài 2. Tính tiền lương nhân viên */
 function exercise2() {
-    //Biến Input
-    var range5Number = document.getElementById("form2").getElementsByTagName("input");
-    //Biến Output
-    var average5Number = document.getElementById("average5Number");
-
-
-    //Process
-    // B1. Tính tổng của 5 số
-    var sum = 0;
-    for (var i = 0; i < range5Number.length; i++) {
-        sum += parseFloat(range5Number[i].value);
-    }
-    //B2. Tính trung bình - làm tròn 2 chữ số thập phân
-    average5Number.innerHTML = Math.round(sum / 5 * 100.0) / 100.0;
+  var number1 = parseFloat(document.getElementById("number1").value);
+  var number2 = parseFloat(document.getElementById("number2").value);
+  var number3 = parseFloat(document.getElementById("number3").value);
+  var number4 = parseFloat(document.getElementById("number4").value);
+  var number5 = parseFloat(document.getElementById("number5").value);
+  var average5Number = (number1 + number2 + number3 + number4 + number5) / 5;
+  return "Giá trị trung bình của 5 số thực là: " + average5Number;
 }
 
 // Bài 3. Quy đổi tỉ giá
 function exercise3() {
-    //Biến Input
-    var currencyUSD = parseInt(document.getElementById("currencyUSD").value);
-    var exchangefr = 23500;
-    //Biến Output
-    var currencyVND = document.getElementById("currencyVND");
-
-    //Process
-    currencyVND.value = currencyUSD * exchangefr;
+  var currencyUSD = document.getElementById("currencyUSD").value;
+  const exchangeRate = 23500;
+  var currencyVND = currencyUSD * exchangeRate;
+  return (
+    "Mệnh giá quy đổi được là: " +
+    Intl.NumberFormat({ style: "currency" }).format(currencyVND) +
+    " VND"
+  );
 }
 
 //Bài 4. Tính diện tích, chu vi hình chữ nhật
 function exercise4() {
-    //Biến Input
-    var rectgLength = parseInt(document.getElementById("rectgLength").value);
-    var rectgWidth = parseInt(document.getElementById("rectgWidth").value);
-    var unit = radioButton("unit");
+  var rectgLength = parseFloat(document.getElementById("rectgLength").value);
+  var rectgWidth = parseFloat(document.getElementById("rectgWidth").value);
+  var unit = document.getElementById("unit").value;
+  perimeter = (rectgLength + rectgWidth) * 2;
+  area = rectgLength * rectgWidth;
 
-    //Biến Output
-    var dienTich = document.getElementById("dienTich");
-    var chuVi = document.getElementById("chuVi");
-
-    //Process
-    chuVi.innerHTML = (rectgLength + rectgWidth) * 2 + " " + unit;
-    dienTich.innerHTML = rectgLength * rectgWidth + " " + unit + "2";
+  return (
+    "Giá trị chu vi là:  " +
+    perimeter +
+    " " +
+    unit +
+    "<br>" +
+    "Giá trị diện tích là:  " +
+    area +
+    " " +
+    unit +
+    "<sup>2</sup>"
+  );
 }
 
 //Bài 5. Tính tổng 2 kí số
 function exercise5() {
-    //Biến Input
-    var number2Digit = parseInt(document.getElementById("number2Digit").value);
-    //Biến Output
-    var sum2Digit = document.getElementById("sum2Digit");
-
-    //Process
-    var unitDigit = number2Digit % 10;
-    var tenDigit = Math.floor(number2Digit / 10);
-    if (tenDigit < 10 && tenDigit > 0) {
-        sum2Digit.style.color = "#3D8361";
-        sum2Digit.innerHTML = unitDigit + tenDigit;
-        sum2Digit.innerHTML= "Tổng 2 kí số là  "+ sum2Digit.innerHTML;
-    }
-    else {
-        sum2Digit.style.color = "red";
-        sum2Digit.innerHTML = "Số được nhập phải có 2 chữ số";
-    }
+  var number2Digit = document.getElementById("number2Digit").value;
+  var unitDigit = number2Digit % 10;
+  var tenDigit = Math.floor(number2Digit / 10);
+  if (tenDigit > 9 || tenDigit < 1) {
+    result[4].style.color = "red";
+    return "Số được nhập phải có 2 chữ số";
+  }
+  var sum2Digit = unitDigit + tenDigit;
+  result[4].style.color = "green";
+  return "Tổng 2 kí số là: " + sum2Digit;
 }
 
-
-
-function TinhToan(i){
-    var exercise="exercise"+i;
-    var form="form"+i;
-    var result="result"+i;
-    var btnSubmit="btnSubmit"+i;
-    var alertNoti="alert"+i;
-    document.getElementById(btnSubmit).addEventListener("click",function(){
-        window[exercise]();
-        validValue(form,result,alertNoti);
-        preventReload();
-    })
+var btnSubmit = document.getElementsByClassName("btn-success");
+var result = document.getElementsByClassName("result");
+var alert = document.getElementsByClassName("alert");
+for (var i = 0; i < btnSubmit.length; i++) {
+  btnSubmit[i].addEventListener("click", function (e) {
+    e.preventDefault();
+    var x = $(btnSubmit).index(this);
+    if (validValue(x) == true) {
+      result[x].innerHTML = window["exercise" + (x + 1)]();
+      result[x].style.display = "block";
+      alert[x].style.display = "none";
+    } else {
+      alert[x].style.display = "block";
+      result[x].style.display = "none";
+    }
+  });
 }
-
-
-TinhToan(1);
-TinhToan(2);
-TinhToan(3);
-TinhToan(4);
-TinhToan(5);

@@ -1,127 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Title</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- MainCSS  -->
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
     <style>
-        h1 {
-            font-size: 20px;
+        label {
+            margin: 0;
         }
-        section {
-            padding: 20px 20px 0;
+        input{
+            margin:10px 0 10px 16px;
         }
-        section>p {
-            display: none;
-            color: #3D8361;
-            font-style: italic;
-            font-weight: 500;
+        .alert{
+            padding:0;
+            color:red;
+            display:none;
         }
-        section>p:nth-of-type(2) {
-            color: red;
+        .result{
+            display:none;
+            color:forestgreen;
         }
     </style>
 </head>
 
 <body>
-    <section class="exercise">
-        <h1>Bài 1. Tính tiền lương nhân viên</h1>
-        <form action="" id="form1">
-            <label for="dayWork">Số ngày làm</label>
-            <input type="number" id="dayWork" required placeholder="Nhập số ngày làm">
-            <button id="btnSubmit1" class="btn btn-secondary" type="submit">Kết quả</button>
-        </form>
-        <p id="result1">Lương tháng của bạn là <span id="salaryMonth"></span></p>
-        <p id="alert1">Hãy nhập ngày làm</p>
+    <div class="container my-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="exercise1-tab" data-toggle="tab" data-target="#exercise1"
+                    type="button" role="tab" aria-controls="exercise1-tab" aria-selected="true">
+                    Exercise 1
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exercise2-tab" data-toggle="tab" data-target="#exercise2" type="button"
+                    role="tab" aria-controls="exercise2-tab" aria-selected="true">
+                    Exercise 2
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exercise3-tab" data-toggle="tab" data-target="#exercise3" type="button"
+                    role="tab" aria-controls="exercise3-tab" aria-selected="true">
+                    Exercise 3
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exercise4-tab" data-toggle="tab" data-target="#exercise4" type="button"
+                    role="tab" aria-controls="exercise4-tab" aria-selected="true">
+                    Exercise 4
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exercise5-tab" data-toggle="tab" data-target="#exercise5" type="button"
+                    role="tab" aria-controls="exercise5-tab" aria-selected="true">
+                    Exercise 5
+                </button>
+            </li>
+        </ul>
 
-
-    </section>
-
-    <section class="exercise">
-        <h1>Bài 2. Tính giá trị trung bình</h1>
-        <form action="" id="form2">
-            <span>Dãy 5 chữ số thực</span>
-            <input type="number" required step=any placeholder="Nhập số thứ nhất">
-            <input type="number" required step=any placeholder="Nhập số thứ hai">
-            <input type="number" required step=any placeholder="Nhập số thứ ba">
-            <input type="number" required step=any placeholder="Nhập số thứ tư">
-            <input type="number" required step=any placeholder="Nhập số thứ năm">
-            <button id="btnSubmit2" class="btn btn-secondary" type="submit">Kết quả</button>
-        </form>
-        <p id="result2">Giá trị trung bình của 5 số trên là: <span id="average5Number"></span></p>
-        <p id="alert2">Hãy nhập đủ 5 chữ số thực</p>
-    </section>
-
-    <section class="exercise">
-        <h1>Bài 3. Quy đổi tỉ giá</h1>
-        <form action="" id="form3">
-            <label for="currencyUSD">Mệnh giá USD</label> <input id="currencyUSD" type="number" required
-                placeholder="Nhập số tiền">
-            <button id="btnSubmit3" class="btn btn-secondary" type="submit">Quy đổi</button>
-            <br>
-            <label for="currencyUSD">Mệnh giá VND</label> <input id="currencyVND" type="number" placeholder="VND"
-                readonly>
-        </form>
-        <p id="result3"></p>
-        <p id="alert3">Hãy nhập số tiền USD muốn quy đổi</p>
-    </section>
-
-
-    <section class="exercise">
-        <h1>Bài 4. Tính chu vi, diện tích hình chữ nhật</h1>
-        <form action="" id="form4">
-            <label for="rectgLength">Chiều dài</label>
-            <input type="number" required placeholder="Nhập chiều dài" id="rectgLength">
-            <br>
-            <label for="rectgWidth">Chiều rộng</label>
-            <input type="number" required placeholder="Nhập chiều rộng" id="rectgWidth">
-            <br>
-            <label for="unit">Đơn vị</label>
-            <div class="d-inline mx-3 word">
-
-                <input type="radio" name="unit" id="centiMetre" value="cm" checked>
-                <label class="mr-3" for="centiMetre">cm</label>
-                <input type="radio" name="unit" id="deciMetre" value="dm" checked>
-                <label class="mr-3" for="deciMetre">dm</label>
-                <input type="radio" name="unit" id="metre" value="m">
-                <label class="mr-3" for="metre">m</label>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="exercise1" role="tabpanel" aria-labelledby="exercise1-tab">
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <label class="col" for="dayWork">Số ngày làm</label>
+                        <label class="col" for="salaryPerDay">Tiền lương 1 ngày</label>
+                    </div>
+                    <div class="row">
+                        <input type="number" id="dayWork" class="form-control col" required
+                        placeholder="Nhập số ngày làm" />
+                    <input type="number" id="salaryPerDay" class="form-control col" required
+                        placeholder="Nhập tiền lương 1 ngày" />
+                    </div>
+                    <button class="btn btn-success mb-3">Tính lương tháng</button>
+                    <span class="result"></span>
+                    <span class="alert">Hãy nhập đủ dữ kiện</span>
+                </div>
             </div>
+            <div class="tab-pane" id="exercise2" role="tabpanel" aria-labelledby="exercise2-tab">
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <label class="col" for="number1">Số thứ nhất</label>
+                        <label class="col" for="number2">Số thứ hai</label>
+                        <label class="col" for="number3">Số thứ ba</label>
+                        <label class="col" for="number4">Số thứ tư</label>
+                        <label class="col" for="number5">Số thứ năm</label>
+                    </div>
+                    <div class="row">
+                        <input type="number" id="number1" class="form-control col" required step=any placeholder="Nhập số thứ nhất">
+                        <input type="number" id="number2" class="form-control col" required step=any placeholder="Nhập số thứ hai">
+                        <input type="number" id="number3" class="form-control col" required step=any placeholder="Nhập số thứ ba">
+                        <input type="number" id="number4" class="form-control col" required step=any placeholder="Nhập số thứ tư">
+                        <input type="number" id="number5" class="form-control col" required step=any placeholder="Nhập số thứ năm">
+                    </div>
+                    <button class="btn btn-success mb-3">Tính giá trị trung bình 5 chữ số</button>
+                    <span class="result"></span>
+                    <span class="alert">Hãy nhập đủ 5 số thực</span>
 
-            <button id="btnSubmit4" class="btn btn-secondary" type="submit">Tính thông số hình chữ nhật</button>
-            <br>
-        </form>
-        <p id="result4">
-            <span>
-                Diện tích hình chữ nhật là: <span id="dienTich"></span>
-            </span>
-            <br>
-            <span>
-                Chu vi hình chữ nhật là: <span id="chuVi"></span>
-            </span>
-        </p>
-        <p id="alert4">Hãy nhập đủ chiều dài, chiều rộng</p>
-    </section>
+                </div>
+            </div>
+            <div class="tab-pane" id="exercise3" role="tabpanel" aria-labelledby="exercise3-tab">
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <label class="col" for="currencyUSD">Mệnh giá USD</label>
+                        <label class="col" for="exchangeRate">Tỉ giá hiện tại</label>
+                    </div>
+                    <div class="row">
+                        <input type="number" id="currencyUSD" class="form-control col" required  placeholder="Nhập số tiền USD muốn quy đổi">
+                        <input type="text" id="exchangeRate" class="col" value="23.500" readonly>
+                    </div>
+                    <button class="btn btn-success mb-3">Quy đổi sang mệnh giá VND</button>
+                    <span class="result"></span>
+                    <span class="alert">Hãy nhập mệnh giá USD</span>
+                </div>
+            </div>
+            <div class="tab-pane" id="exercise4" role="tabpanel" aria-labelledby="exercise4-tab">
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <label class="col" for="rectgLength">Chiều dài</label>
+                        <label class="col" for="rectgWidth">Chiều rộng</label>
+                        <label class="col" for="Unit">Đơn vị</label>
+                    </div>
+                    <div class="row align-items-center">
+                        <input type="number" class="form-control col" required placeholder="Nhập chiều dài" id="rectgLength">
+                        <input type="number" class="form-control col mr-3" required placeholder="Nhập chiều rộng" id="rectgWidth">
+                        <select id="unit" class="form-control col">
+                            <option selected>cm</option>
+                            <option>dm</option>
+                            <option>m</option>
+                          </select>
+                    </div>
+                    <button class="btn btn-success mb-3">Tính diện tích - chu vi</button>
+                    <span class="result"></span>
+                    <span class="alert">Hãy nhập đủ chiều dài - chiều rộng</span>
+                </div>
+            </div>
+            <div class="tab-pane" id="exercise5" role="tabpanel" aria-labelledby="exercise5-tab">
+                <div class="form-group mt-3">
+                    <div class="row align-items-center">
+                        <label class="col-2" for="number2Digit">Số có hai chữ số</label>
+                        <input type="number" class="form-control col-4" required placeholder="Nhập số có 2 chữ số" id="number2Digit">
+                    </div>
+                    <button class="btn btn-success mb-3">Tính tổng 2 kí số</button>
+                    <span class="result"></span>
+                    <span class="alert">Hãy nhập số có 2 chữ số</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <section class="exercise">
-        <h1>Bài 5. Tính tổng 2 kí số</h1>
-        <form action="" id="form5">
-            <label for="number2Digit">Số có 2 chữ số</label>
-            <input type="number" required placeholder="Nhập 1 số có 2 chữ số" id="number2Digit">
-            <button id="btnSubmit5" class="btn btn-secondary" type="submit">Tính tổng 2 kí số</button>
-        </form>
-        <p id="result5"><span id="sum2Digit"></span></p->
-        <p id="alert5">Hãy nhập số có 2 chữ số</p>
-    </section>
-
-
-    <!-- Jquery -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -131,9 +168,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <!-- Main JavaScript -->
 
-    <script src="./javascript/index.js"></script>
+        <script src="./javascript/index.js"></script>
 </body>
 
 </html>
